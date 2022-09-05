@@ -41,6 +41,7 @@ namespace CryptoTracker.Controllers
                         new {name = model.Name, email = model.Email, password = model.Password},
                         protocol: HttpContext.Request.Scheme);
                     await _utilityService.SendEmail(model.Email,
+                        "E-mail confirmation",
                         $"Confirm your email by clicking the link below.\n <a href='{url}'>Click me!</a>");
                     return Ok("Check email for confirmation link");
                 }

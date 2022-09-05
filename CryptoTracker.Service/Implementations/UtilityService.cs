@@ -25,6 +25,8 @@ namespace CryptoTracker.Service.Implementations
         private readonly IBaseRepository<User> _userRepository;
         private readonly IBaseRepository<Deal> _dealRepository;
         private readonly IBaseRepository<Transaction> _transactionRepository;
+        private const string _addres = "crypto.tracker@inbox.ru";
+        private const string _emailPassword = "msjVXfajRYdtdiMWXJ0X";
 
         public UtilityService(IBaseRepository<User> userRepository, IBaseRepository<Deal> dealRepository, IBaseRepository<Transaction> transactionRepository)
         {
@@ -177,13 +179,13 @@ namespace CryptoTracker.Service.Implementations
             }
         }
 
-        public async Task SendEmail(string email, string message)
+        public async Task SendEmail(string email, string subject, string message)
         {
             var mes = new MimeMessage();
             
-            mes.From.Add(new MailboxAddress("CryptoTracker", "crypto.tracker@inbox.ru"));
+            mes.From.Add(new MailboxAddress("CryptoTracker", _addres));
             mes.To.Add(new MailboxAddress("", email));
-            mes.Subject = "E-mail verification";
+            mes.Subject = subject;
             mes.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
                 Text = message
@@ -193,7 +195,7 @@ namespace CryptoTracker.Service.Implementations
             {
                 await client.ConnectAsync("smtp.mail.ru", 465, true);
                 
-                await client.AuthenticateAsync("crypto.tracker@inbox.ru", "msjVXfajRYdtdiMWXJ0X");
+                await client.AuthenticateAsync(_addres, _emailPassword);
                 await client.SendAsync(mes);
                 await client.DisconnectAsync(true);
             }

@@ -12,6 +12,6 @@ namespace CryptoTracker.Service.Interfaces
         Task<BaseResponse<int>> GetUserIdByName(string name);
         BaseResponse<Dictionary<int, string>> GetTransactionTypes();
         Task<BaseResponse<List<HomeViewModel>>> GetIndexValues(string name);
-        Task SendEmail(string email, string message);
+        Task SendEmail(string email, string subject, string message);
     }
 }

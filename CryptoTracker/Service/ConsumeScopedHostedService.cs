@@ -40,27 +40,13 @@ namespace CryptoTracker.Service
             {
                 var context = scope.ServiceProvider.GetService<ApplicationDbContext>();
                 var profit = GetProfit(context);
+                var utils = scope.ServiceProvider.GetService<IUtilityService>();
 
-                var mes = new MimeMessage();
-            
-                mes.From.Add(new MailboxAddress("CryptoTracker", "crypto.tracker@inbox.ru"));
-                mes.Subject = "CryptoTracker Profit";
-
-                using (var client = new SmtpClient())
+                foreach (var p in profit)
                 {
-                    await client.ConnectAsync("smtp.mail.ru", 465, true);
-                    await client.AuthenticateAsync("crypto.tracker@inbox.ru", "msjVXfajRYdtdiMWXJ0X");
-                    foreach (var p in profit)
-                    {
-                        mes.To.Clear();
-                        mes.To.Add(new MailboxAddress("", p.Key));
-                        mes.Body = new TextPart(MimeKit.Text.TextFormat.Html)
-                        {
-                            Text = $"Hey! Your income this week is {p.Value}!"
-                        };
-                        await client.SendAsync(mes);
-                    }
-                    await client.DisconnectAsync(true);
+                    await utils.SendEmail(p.Key, 
+                        "CryptoTracker Profit",
+                        $"Hey! Your income this week is {p.Value}$!");
                 }
             }
         }
