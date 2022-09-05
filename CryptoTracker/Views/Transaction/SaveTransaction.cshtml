@@ -1,0 +1,50 @@
+﻿@model CryptoTracker.Domain.ViewModels.Transaction.TransactionViewModel
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="d-flex align-content-center justify-content-center">
+    <form asp-controller="Transaction" asp-action="SaveTransaction" enctype="multipart/form-data">
+        @{
+            if (Model == null)
+            {
+                <input asp-for="Id" hidden value="0"/>
+            }
+            else
+            {
+                <input asp-for="Id" hidden value="@Model.Id"/>
+
+            }
+        }
+        <div asp-validation-summary="All"></div>
+        <div class="col">
+            <div class="form-group col-md-4">
+                <label asp-for="Currency" class="col-form-label"></label>
+                @Html.DropDownList("Currency", ViewBag.Currencies as SelectList)
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Amount" class="col-form-label"></label>
+                <input asp-for="Amount" type="number" min="0" step="any"/>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Wallet" class="col-form-label"></label>
+                <input asp-for="Wallet" type="text"/>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Commission" class="col-form-label"></label>
+                <input asp-for="Commission" type="number" min="0" step="any"/>
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="TransactionType" class="col-form-label"></label>
+                @Html.DropDownList("TransactionType", ViewBag.TransactionTypes as SelectList)
+            </div>
+            <div class="form-group col-md-4">
+                <label asp-for="Commentary" class="col-form-label">Commentary</label>
+                <textarea asp-for="Commentary" type="text"></textarea>
+            </div>
+        </div>
+        <input type="submit" class="btn-success" >
+    </form>
+</div>

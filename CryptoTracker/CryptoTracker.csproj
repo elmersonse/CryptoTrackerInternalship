@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore" Version="3.19.0" />
+    <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.linux-x64" Version="3.18.2" />
+    <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.osx-x64" Version="3.18.2" />
+    <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.win-x64" Version="3.18.2" />
+    <PackageReference Include="JavaScriptEngineSwitcher.ChakraCore.Native.win-x86" Version="3.18.2" />
+    <PackageReference Include="JavaScriptEngineSwitcher.Extensions.MsDependencyInjection" Version="3.19.0" />
+    <PackageReference Include="MailKit" Version="3.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="React.AspNet" Version="5.2.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CryptoTracker.DAL\CryptoTracker.DAL.csproj" />
+    <ProjectReference Include="..\CryptoTracker.Domain\CryptoTracker.Domain.csproj" />
+    <ProjectReference Include="..\CryptoTracker.Service\CryptoTracker.Service.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\js\about\about.jsx" />
+    <_ContentIncludedByDefault Remove="wwwroot\js\mainPage\mainPage.jsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Deal\SaveDeal.cshtml" />
+    <Content Remove="Views\Deal\SaveDealModal.cshtml" />
+    <Content Remove="Views\Transaction\SaveTransaction.cshtml" />
+    <Content Remove="Views\Transaction\SaveTransactionModal.cshtml" />
+  </ItemGroup>
+
+</Project>

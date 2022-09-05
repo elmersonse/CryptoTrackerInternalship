@@ -1,0 +1,21 @@
+﻿@using CryptoTracker.Domain.Enum
+@using CryptoTracker.Domain.Utility
+@using CryptoTracker.Domain.Entity
+@model IEnumerable<CryptoTracker.Domain.Entity.Deal>
+
+@{
+    ViewBag.Title = "title";
+}
+<div class="d-flex flex-column align-items-center justify-content-center">
+    <script type="text/babel" src="~/js/deal.jsx"></script>
+    <div class="accordion w-50">
+        @{
+            if (Model == null)
+            {
+                <h2>Add deal first</h2>
+            }
+        }
+        <div id="app"></div>
+    </div>
+</div>
+<a class="btn-add" data-toggle="modal" href="#modal-1" onclick="setId()"><img src="~/icons/plus-thick.png"/></a>

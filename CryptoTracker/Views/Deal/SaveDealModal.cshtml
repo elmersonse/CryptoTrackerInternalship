@@ -1,0 +1,52 @@
+﻿@model CryptoTracker.Domain.Entity.Deal
+
+@* <link rel="stylesheet" type="text/css" href="~/css/custom.css"/> *@
+<div class="d-flex align-content-center justify-content-center">
+    <form asp-controller="Deal" asp-action="SaveDeal" enctype="multipart/form-data">
+        @{
+            if (Model == null)
+            {
+                <input asp-for="Id" hidden value="0"/>
+            }
+            else
+            {
+                <input asp-for="Id" hidden value="@Model.Id"/>
+            }
+        }
+        <div asp-validation-summary="All"></div>
+        <div class="col modal-custom d-flex flex-column align-items-center">
+            <div class="form-group col-md-8">
+                <label asp-for="Currency" class="col-form-label"></label>
+                @Html.DropDownList("Currency", ViewBag.Currencies as SelectList)
+            </div>
+            <div class="form-group col-md-8">
+                <label asp-for="Amount" class="col-form-label"></label>
+                <input asp-for="Amount" type="number" step="any" required/>
+            </div>
+            <div class="form-group col-md-8">
+                <label asp-for="Rate" class="col-form-label">Rate (USD for 1 cryptocoin)</label>
+                <input asp-for="Rate" type="number" step="0.01" required/>
+            </div>
+            <div class="form-group col-md-8">
+                <label asp-for="DealType" class="col-form-label"></label>
+                @Html.DropDownList("DealType", ViewBag.DealTypes as SelectList)
+            </div>
+            <div class="form-group col-md-8">
+                <label asp-for="Commentary" class="col-form-label">Commentary</label>
+                <textarea asp-for="Commentary" type="text"></textarea>
+            </div>
+        </div>
+        <div class="d-flex flex-row justify-content-around">
+            @{
+                if (Model.Id == 0)
+                {
+                    <input class="modal-save" type="image" src="~/icons/check.png" alt="submit">
+                }
+                else
+                {
+                    <input class="modal-save" type="image" src="~/icons/check.png" alt="submit">
+                }
+            }
+        </div>
+    </form>
+</div>

@@ -1,0 +1,156 @@
+﻿body {
+    background-color: #EEEEEE;
+    font-family: Verdana, serif;
+}
+
+nav {
+    background-color: #3A4750;
+    border-bottom: #303841 1px solid;
+}
+
+.nav-text-light {
+    color: #EEEEEE;
+}
+
+.nav-text-light:hover {
+    color: #EEEEEE;
+}
+
+footer {
+    background-color: #3A4750;
+    border-top: #303841 1px solid;
+    position: fixed;
+}
+
+.btn-add {
+    background-color: #E52B50;
+    padding: 8px;
+    border-radius: 100%;
+    position: fixed;
+    bottom: 28px;
+    left: calc(50% - 32px);
+    z-index: 10;
+}
+
+.custom-card-body {
+    text-decoration: none;
+    padding: 5px;
+    border: 0.5px solid white;
+    color: #212529;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.custom-card-body:hover {
+    text-decoration: none;
+    color: #212529;
+    border-color: #808080;
+}
+
+.custom-card-body-left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.custom-card-currency {
+    margin-left: 10px;
+    font-size: 20px;
+}
+
+.custom-card-commentary {
+    position: relative;
+    top: 2px;
+    left: 15px;
+    color: #838383;
+}
+
+.modal-save {
+    height: 64px;
+    width: 64px;
+}
+
+.modal-delete img {
+    vertical-align: initial;
+}
+
+.modal-delete {
+    cursor: pointer;
+}
+
+.modal-body {
+    margin-bottom: -51px;
+}
+
+.modal-close {
+    position: fixed;
+    margin-left: 445px;
+}
+
+.modal-custom .form-group {
+    width: 100%;
+}
+
+.modal-custom select {
+    width: 100%;
+}
+
+.modal-custom input:not([type="checkbox"]) {
+    width: 100%;
+}
+
+.modal-custom textarea {
+    width: 100%;
+}
+
+.home-card {
+    border: 2px #212529 solid;
+    border-radius: 10%;
+    width: 150px;
+    height: 150px;
+    box-shadow: 2px 2px 3px gray;
+}
+
+.home-card-header {
+    border-bottom: 2px solid #3A4750;
+    height: 30%;
+    color: #212529;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.home-card-body {
+    font-size: 18px;
+}
+
+.home-card-body .red {
+    color: red;
+}
+
+.home-card-body .green {
+    color: green;
+}
+
+.chart-container {
+    width: 1000px; !important;
+    height: 600px; !important;
+}
+
+.errorLabel {
+    color: red;
+}
+
+.doneLabel {
+    color: green;
+}
+
+.checkHint {
+    color: gray;
+}
+
+.index-container details{
+    width: 100%;
+}

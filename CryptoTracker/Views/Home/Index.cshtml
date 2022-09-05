@@ -1,0 +1,79 @@
+﻿@model List<CryptoTracker.Domain.ViewModels.Home.HomeViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<body>
+    <div class="d-flex flex-column align-items-center index-container">
+        <div id="app" style="width: 100%"></div>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@@babel/standalone/babel.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+        @{
+            if (User.Identity.IsAuthenticated)
+            {
+                <script type="text/babel" src="@Url.Content("~/js/index.jsx")"></script>
+                <details class="card">
+                    <summary class="card-header">Coins ratio</summary>
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="chart-container" id="chart">
+                            <canvas id="pieChart" width="200px" height="200px"></canvas>
+                        </div>
+                    </div>
+                </details>
+                <details class="card">
+                    <summary class="card-header">Last assets</summary>
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="chart-container" id="actChart">
+                            <canvas id="activityChart" width="200px" height="200px"></canvas>
+                        </div>
+                    </div>
+                </details>
+                <details class="card">
+                    <summary class="card-header">Income</summary>
+                    <div class="d-flex flex-column align-items-center">
+                        <div class="d-flex flex-row justify-content-between" style="width: 60%">
+                            <button class="btn btn-primary" id="btc">BTC</button>
+                            <button class="btn btn-primary" id="eth">ETH</button>
+                            <button class="btn btn-primary" id="usdt">USDT</button>
+                            <button class="btn btn-primary" id="xrp">XRP</button>
+                            <button class="btn btn-primary" id="bnb">BNB</button>
+                        </div>
+                        <div class="chart-container" hidden id="incChart">
+                            <canvas id="incomeChart" width="200px" height="200px"></canvas>
+                        </div>
+                    </div>
+                </details>
+                <script src="~/js/pieChart.js"></script>
+                <script src="~/js/activityChart.js"></script>
+                <script src="~/js/incomeChart.js"></script>
+            }
+        }
+        <details class="card" open>
+            <summary class="card-header">Rates</summary>
+            <div class="d-flex flex-column align-items-center">
+                <div id="rates" style="width: 80%"></div>
+                <script type="text/babel" src="~/js/rates.jsx"></script>
+                <div class="d-flex flex-row justify-content-between" style="width: 60%">
+                    <button class="btn btn-primary" id="btcRate">BTC</button>
+                    <button class="btn btn-primary" id="ethRate">ETH</button>
+                    <button class="btn btn-primary" id="usdtRate">USDT</button>
+                    <button class="btn btn-primary" id="xrpRate">XRP</button>
+                    <button class="btn btn-primary" id="bnbRate">BNB</button>
+                </div>
+                <div class="chart-container" id="rtChart">
+                    <canvas id="ratesChart" width="200px" height="200px"></canvas>
+                </div>
+            </div>
+        </details>
+        <script src="~/js/ratesChart.js"></script>
+    </div>
+</body>
+
+<style>
+    .chart-container {
+        width: 800px;
+        height: 800px;
+    }
+</style>
