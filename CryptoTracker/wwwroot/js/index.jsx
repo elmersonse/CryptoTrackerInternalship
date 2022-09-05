@@ -1,4 +1,4 @@
-﻿fetch('./api/MainPage')
+﻿fetch('/api/MainPage')
     .then(result => result.json())
     .then(result => {
         fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Ctether%2Cripple%2Cbinancecoin&vs_currencies=usd')
@@ -27,7 +27,7 @@
                 }
                 let profitString = profit + "$ ("+profitPercent+"%)";
                 
-                fetch("./api/MainPage", {
+                fetch("/api/MainPage", {
                     method: "POST",
                     headers: {
                         "Accept": "application/json", "Content-Type": "application/json"

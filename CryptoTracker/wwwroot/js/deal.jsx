@@ -1,4 +1,4 @@
-﻿fetch('./api/DealApi')
+﻿fetch('/api/DealApi')
     .then(res => res.json())
     .then(res => {
         
@@ -67,7 +67,7 @@ function setId() {
 }
 
 async function createDeal(curr, amount, rate, type, comment) {
-    const resp = await fetch("./api/DealApi", {
+    const resp = await fetch("/api/DealApi", {
         method: "POST",
         headers: { "Accept": "application/json", "Content-Type": "application/json" }, 
         body: JSON.stringify({
@@ -85,7 +85,7 @@ async function createDeal(curr, amount, rate, type, comment) {
 }
 
 async function updateDeal(curr, amount, rate, type, comment, id) {
-    const resp = await fetch("./api/DealApi", {
+    const resp = await fetch("/api/DealApi", {
         method: "PUT",
         headers: { "Accept": "application/json", "Content-Type": "application/json" }, 
         body: JSON.stringify({
@@ -104,7 +104,7 @@ async function updateDeal(curr, amount, rate, type, comment, id) {
 }
 
 async function deleteDeal(id) {
-    const resp = await fetch("./api/DealApi/"+id, {
+    const resp = await fetch("/api/DealApi/"+id, {
         method: "DELETE",
         headers: { "Accept": "application/json" },
     });

@@ -8,7 +8,7 @@
             <header>
                 <nav className="navbar navbar-expand-sm navbar-toggleable-sm box-shadow mb-3">
                     <div className="container">
-                        <a className="navbar-brand nav-text-light" asp-area="" href="./">CryptoTracker</a>
+                        <a className="navbar-brand nav-text-light" asp-area="" href="/">CryptoTracker</a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -18,15 +18,15 @@
                             <ul className="navbar-nav flex-grow-1 justify-content-between">
                                 <div className="d-flex flex-row">
                                     <li className="nav-item">
-                                        <a className="nav-link nav-text-light" href="./">Home</a>
+                                        <a className="nav-link nav-text-light" href="/">Home</a>
                                     </li>
                                 </div>
                                 <div className="d-flex flex-row">
                                     <li className="nav-item">
-                                        <a className="nav-link nav-text-light" href={"./account/login/"}>Login</a>
+                                        <a className="nav-link nav-text-light" href={"/account/login/"}>Login</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link nav-text-light" href={"./account/register/"}>Register</a>
+                                        <a className="nav-link nav-text-light" href={"/account/register/"}>Register</a>
                                     </li>
                                 </div>
                             </ul>

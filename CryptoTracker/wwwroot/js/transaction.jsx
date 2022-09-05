@@ -1,4 +1,4 @@
-﻿fetch('./api/TransactionApi')
+﻿fetch('/api/TransactionApi')
     .then(res => res.json())
     .then(res => {
         const grouped = groupBy(res);
@@ -47,7 +47,7 @@ function setId() {
 }
 
 async function createTransaction(curr, amount, commission, wallet, type, comment) {
-    const resp = await fetch("./api/TransactionApi", {
+    const resp = await fetch("/api/TransactionApi", {
         method: "POST",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -66,7 +66,7 @@ async function createTransaction(curr, amount, commission, wallet, type, comment
 }
 
 async function updateTransaction(curr, amount, commission, wallet, type, comment, id) {
-    const resp = await fetch("./api/TransactionApi", {
+    const resp = await fetch("/api/TransactionApi", {
         method: "PUT",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -86,7 +86,7 @@ async function updateTransaction(curr, amount, commission, wallet, type, comment
 }
 
 async function deleteTransaction(id) {
-    const resp = await fetch("./api/TransactionApi/"+id, {
+    const resp = await fetch("/api/TransactionApi/"+id, {
         method: "DELETE",
         headers: { "Accept": "application/json" },
     });

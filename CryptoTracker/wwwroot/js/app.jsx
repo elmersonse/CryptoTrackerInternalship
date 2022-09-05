@@ -1,4 +1,4 @@
-﻿fetch('./api/MainPage')
+﻿fetch('/api/MainPage')
     .then(result => result.json())
     .then(result => {
         let table = result.map((item) => {

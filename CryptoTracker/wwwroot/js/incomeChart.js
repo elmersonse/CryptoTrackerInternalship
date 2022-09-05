@@ -89,7 +89,7 @@ function countLiveData(rates, allRates, dealsGrouped, chartDays, currency) {
 
 function createIncomeChart(fullName, shortName) {
     document.getElementById("incChart").hidden = false;
-    fetch("./api/DealApi")
+    fetch("/api/DealApi")
         .then(res => res.json())
         .then(deals => {
             const days = 7862400;

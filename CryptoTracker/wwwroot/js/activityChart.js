@@ -1,6 +1,6 @@
 ﻿const ctx1 = document.getElementById("activityChart").getContext('2d');
 
-fetch("./api/DealApi")
+fetch("/api/DealApi")
     .then(res => res.json())
     .then(deals => {
         let dealsUsd = structuredClone(deals);
