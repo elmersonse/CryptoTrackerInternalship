@@ -1,6 +1,6 @@
 ﻿async function Register(login, email, password, passwordConfirm) {
     let err = document.getElementById("errorLabel");
-    const resp = await fetch("http://localhost:5001/api/RegisterApi", {
+    const resp = await fetch("./api/RegisterApi", {
         method: "POST",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -14,7 +14,7 @@
         .then(res => {
             if(res === "Done") {
                 err.hidden = true;
-                location.assign("http://localhost:5001/");
+                location.assign("./");
                 return;
             }
             if(res === "Check email for confirmation link") {

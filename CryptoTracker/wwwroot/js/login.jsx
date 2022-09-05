@@ -1,6 +1,6 @@
 ﻿async function Login(login, password) {
     let err = document.getElementById("errorLabel");
-    const resp = await fetch("http://localhost:5001/api/LoginApi", {
+    const resp = await fetch("./api/LoginApi", {
         method: "POST",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -12,7 +12,7 @@
         .then(res => {
             if(res === "Done") {
                 err.hidden = true;
-                location.assign("http://localhost:5001/");
+                location.assign("./");
                 return;
             }
             err.innerHTML = res;

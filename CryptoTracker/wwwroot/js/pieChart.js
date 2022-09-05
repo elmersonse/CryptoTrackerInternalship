@@ -4,7 +4,7 @@ fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cte
     .then(res => res.json())
     .then(res => rates = [res.bitcoin.usd, res.ethereum.usd, res.tether.usd, res.ripple.usd, res.binancecoin.usd])
     .then(res => {
-        fetch("http://localhost:5001/api/MainPage")
+        fetch("./api/MainPage")
             .then(res => res.json())
             .then(res => {
         let lable = [];

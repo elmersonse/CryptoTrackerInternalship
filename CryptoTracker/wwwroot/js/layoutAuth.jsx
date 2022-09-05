@@ -1,4 +1,4 @@
-﻿fetch("http://localhost:5001/api/LayoutApi")
+﻿fetch("./api/LayoutApi")
     .then(res => res.text())
     .then(res => {
         ReactDOM.render(
@@ -17,7 +17,7 @@ class LayoutAuth extends React.Component {
             <header>
                 <nav className="navbar navbar-expand-sm navbar-toggleable-sm box-shadow mb-3">
                     <div className="container">
-                        <a className="navbar-brand nav-text-light" asp-area="" href="http://localhost:5001/">CryptoTracker</a>
+                        <a className="navbar-brand nav-text-light" asp-area="" href="./">CryptoTracker</a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse"
                                 data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                                 aria-expanded="false" aria-label="Toggle navigation">
@@ -27,13 +27,13 @@ class LayoutAuth extends React.Component {
                             <ul className="navbar-nav flex-grow-1 justify-content-between">
                                 <div className="d-flex flex-row">
                                     <li className="nav-item">
-                                        <a className="nav-link nav-text-light" href="http://localhost:5001/">Home</a>
+                                        <a className="nav-link nav-text-light" href="./">Home</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link nav-text-light" href={"http://localhost:5001/deal/getdeals?name="+this.props.username}>Deals</a>
+                                        <a className="nav-link nav-text-light" href={"./deal/getdeals?name="+this.props.username}>Deals</a>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link nav-text-light" href={"http://localhost:5001/transaction/gettransactions?name="+this.props.username}>Transactions</a>
+                                        <a className="nav-link nav-text-light" href={"./transaction/gettransactions?name="+this.props.username}>Transactions</a>
                                     </li>
                                 </div>
                                 <div className="d-flex flex-row">
@@ -41,7 +41,7 @@ class LayoutAuth extends React.Component {
                                         <div className="nav-link nav-text-light">{this.props.username}</div>
                                     </li>
                                     <li className="nav-item">
-                                        <a className="nav-link nav-text-light" href={"http://localhost:5001/account/logout/"}>Logout</a>
+                                        <a className="nav-link nav-text-light" href={"./account/logout/"}>Logout</a>
                                     </li>
                                 </div>
                             </ul>

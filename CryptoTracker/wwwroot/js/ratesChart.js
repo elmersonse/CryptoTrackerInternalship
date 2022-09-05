@@ -32,8 +32,7 @@ function createChart(fullName) {
                 chartLabels.push(new Date(parseInt(item[0])).customFormat("#D#.#MM#"));
                 chartData.push(item[1]);
             });
-
-            console.log(chartData);
+            
             let lineColor = randomColor();
             const data = {
                 labels: chartLabels,

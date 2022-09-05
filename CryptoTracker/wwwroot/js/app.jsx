@@ -1,4 +1,4 @@
-﻿fetch('http://localhost:5001/api/MainPage')
+﻿fetch('./api/MainPage')
     .then(result => result.json())
     .then(result => {
         let table = result.map((item) => {

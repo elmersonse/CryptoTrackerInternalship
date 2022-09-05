@@ -44,6 +44,8 @@ namespace CryptoTracker.Controllers
                         $"Confirm your email by clicking the link below.\n <a href='{url}'>Click me!</a>");
                     return Ok("Check email for confirmation link");
                 }
+
+                return Ok(resp.Description);
             }
             
             return Ok("Passwords don't match");
