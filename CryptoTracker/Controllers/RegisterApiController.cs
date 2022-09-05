@@ -46,6 +46,11 @@ namespace CryptoTracker.Controllers
                     return Ok("Check email for confirmation link");
                 }
 
+                if (resp.StatusCode == Domain.Enum.StatusCode.InternalServerError)
+                {
+                    return Ok("Oops! Something went wrong. Try again later!");
+                }
+
                 return Ok(resp.Description);
             }
             

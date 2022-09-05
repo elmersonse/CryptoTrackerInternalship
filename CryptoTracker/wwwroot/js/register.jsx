@@ -1,6 +1,6 @@
 ﻿async function Register(login, email, password, passwordConfirm) {
     let err = document.getElementById("errorLabel");
-    const resp = await fetch("./api/RegisterApi", {
+    await fetch("./api/RegisterApi", {
         method: "POST",
         headers: { "Accept": "application/json", "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -41,6 +41,9 @@ class RegisterForm extends React.Component {
         const email = form.elements["email"].value;
         const password = form.elements["password"].value;
         const passwordConfirm = form.elements["passwordConfirm"].value;
+        if(password.length < 8) {
+            document.getElementById("errorLabel").innerHTML = "Password must be 8 at least digits";
+        }
         Register(login, email, password, passwordConfirm);
     }
 
