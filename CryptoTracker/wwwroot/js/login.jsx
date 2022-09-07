@@ -12,7 +12,7 @@
         .then(res => {
             if(res === "Done") {
                 err.hidden = true;
-                location.assign(".");
+                location.assign("/");
                 return;
             }
             err.innerHTML = res;

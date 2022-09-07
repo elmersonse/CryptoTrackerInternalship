@@ -20,10 +20,12 @@ fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cethereum%2Cte
         });
         if(lable.length == 0) {
             document.getElementById("chart").hidden = true;
+            document.getElementById("ratioH").hidden = false;
+
+            return;
         }
-        else {
-            document.getElementById("chart").hidden = false;
-        }
+        document.getElementById("chart").hidden = false;
+        document.getElementById("ratioH").hidden = true;
         const chart = new Chart(ctx, {
             type: 'doughnut',
             data: {

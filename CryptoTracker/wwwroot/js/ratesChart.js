@@ -2,10 +2,12 @@
 const now = Math.round(new Date().getTime()/1000);
 const canvas1 = document.getElementById("ratesChart");
 const ctx3 = canvas1.getContext('2d');
-let chart1 = new Chart();
+let chart1 = new Chart(ctx3);
 function createChart(fullName) {
-    fetch("https://api.coingecko.com/api/v3/coins/"+fullName+"/market_chart/range?vs_currency=usd&from="+(now-days)+"&to="+now)
-        .then(btc => btc.json())
+    fetch("https://api.coingecko.com/api/v3/coins/"+fullName+"/market_chart/range?vs_currency=usd&from="+(now-days)+"&to="+now,)
+        .then(btc => {
+            return btc.json();
+        })
         .then(btc => {
             let name;
             switch (fullName) {

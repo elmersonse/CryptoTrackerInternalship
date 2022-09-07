@@ -16,6 +16,7 @@
                 <script type="text/babel" src="@Url.Content("~/js/index.jsx")"></script>
                 <details class="card">
                     <summary class="card-header">Coins ratio</summary>
+                    <h2 id="ratioH">Can't build the chart. You have to add deal first!</h2>
                     <div class="d-flex flex-column align-items-center">
                         <div class="chart-container" id="chart">
                             <canvas id="pieChart" width="200px" height="200px"></canvas>
@@ -24,6 +25,7 @@
                 </details>
                 <details class="card">
                     <summary class="card-header">Last assets</summary>
+                    <h2 id="assetsH">Can't build the chart. You have to add deal first!</h2>
                     <div class="d-flex flex-column align-items-center">
                         <div class="chart-container" id="actChart">
                             <canvas id="activityChart" width="200px" height="200px"></canvas>
@@ -32,16 +34,19 @@
                 </details>
                 <details class="card">
                     <summary class="card-header">Income</summary>
-                    <div class="d-flex flex-column align-items-center">
-                        <div class="d-flex flex-row justify-content-between" style="width: 60%">
-                            <button class="btn btn-primary" id="btc">BTC</button>
-                            <button class="btn btn-primary" id="eth">ETH</button>
-                            <button class="btn btn-primary" id="usdt">USDT</button>
-                            <button class="btn btn-primary" id="xrp">XRP</button>
-                            <button class="btn btn-primary" id="bnb">BNB</button>
-                        </div>
-                        <div class="chart-container" hidden id="incChart">
-                            <canvas id="incomeChart" width="200px" height="200px"></canvas>
+                    <h2 id="incomeH">Can't build the chart. You have to add deal first!</h2>
+                    <div id="incChartDiv">
+                        <div class="d-flex flex-column align-items-center">
+                            <div class="d-flex flex-row justify-content-between" style="width: 60%">
+                                <button class="btn btn-primary" id="btc">BTC</button>
+                                <button class="btn btn-primary" id="eth">ETH</button>
+                                <button class="btn btn-primary" id="usdt">USDT</button>
+                                <button class="btn btn-primary" id="xrp">XRP</button>
+                                <button class="btn btn-primary" id="bnb">BNB</button>
+                            </div>
+                            <div class="chart-container" hidden id="incChart">
+                                <canvas id="incomeChart" width="200px" height="200px"></canvas>
+                            </div>
                         </div>
                     </div>
                 </details>

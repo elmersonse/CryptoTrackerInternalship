@@ -28,7 +28,6 @@
                             );
                         })}
                     </details>
-                    <Modal />
                 </div>
             );
         });
@@ -106,6 +105,7 @@ class JsonData extends React.Component {
         return (
             <div>
                 {this.props.list}
+                <Modal key={"modal"} />
             </div>
         );
     }

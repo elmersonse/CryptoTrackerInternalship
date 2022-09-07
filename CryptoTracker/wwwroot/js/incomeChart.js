@@ -1,4 +1,6 @@
-﻿let chart = new Chart();
+﻿const canvas = document.getElementById("incomeChart");
+const ctx2 = canvas.getContext('2d');
+let chart = new Chart(ctx2);
 function countMyData(rates, dealsGrouped, chartDays, currency) {
     let groupKeys = Object.keys(dealsGrouped);
     let tempMy = 0;
@@ -109,6 +111,13 @@ function createIncomeChart(fullName, shortName) {
                     let chartMyData = countMyData(rates, dealsGrouped, chartDays, shortName);
                     let chartLiveData = countLiveData(rates, btc.prices, dealsGrouped, chartDays, shortName);
 
+                    if(deals.length === 0) {
+                        document.getElementById("incChartDiv").hidden = true;
+                        document.getElementById("incomeH").hidden = false;
+                        return;
+                    }
+                    document.getElementById("incChartDiv").hidden = false;
+                    document.getElementById("incomeH").hidden = true;
                     let lineColor = randomColor();
                     let lineColor1 = randomColor();
                     const data = {
@@ -150,9 +159,6 @@ function createIncomeChart(fullName, shortName) {
 
         });
 }
-
-const canvas = document.getElementById("incomeChart");
-const ctx2 = canvas.getContext('2d');
 
 function drawIncomeBtc() {
     chart.destroy();

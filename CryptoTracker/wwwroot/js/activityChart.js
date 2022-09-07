@@ -26,7 +26,11 @@ fetch("/api/DealApi")
         let chartLabels = keys.map(item => new Date(parseInt(item)).customFormat("#D#.#MM#"));
         if(chartLabels.length === 0) {
             document.getElementById("actChart").hidden = true;
+            document.getElementById("assetsH").hidden = false;
+            return;
         }
+        document.getElementById("actChart").hidden = false;
+        document.getElementById("assetsH").hidden = true;
         let lineColor = randomColor();
         const data = {
             labels: chartLabels,
